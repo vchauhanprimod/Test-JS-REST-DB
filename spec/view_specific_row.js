@@ -1,6 +1,6 @@
 describe("Get a particular row using id from a particular table from the desired database", function() {
     // test case to logout via rest call
-    it("Should be able to perform a successful ajax request on resource "+window.base_url+"/users/12 to view one row of user table where id is 12", function() {
+    it("Should be able to perform a successful ajax request on resource "+window.base_url+"/users/12 to view one row of user table where id is 18", function() {
         var asyncCallComplete, result,
         _this = this;
         // asyncCallComplete is set to true when the ajax call is complete
@@ -12,7 +12,7 @@ describe("Get a particular row using id from a particular table from the desired
         // SECTION 1 - call asynchronous function
         runs(function() {
             $.ajax({
-                url: window.base_url+"test_db/users/12",
+                url: window.base_url+"test_db/users/18",
                 type: "GET",
                 success: function(data) {
                     asyncCallComplete = true;
@@ -30,6 +30,7 @@ describe("Get a particular row using id from a particular table from the desired
 
         // SECTION 3 - perform tests
         return runs(function() {
+            console.log(result);
             return expect(result['data']).toBeDefined();
         });
     });

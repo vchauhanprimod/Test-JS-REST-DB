@@ -1,6 +1,6 @@
-describe("When we want to delete a database", function() {
-    // test case for creation of lead
-    it("Should be able to perform a successful ajax request on resource :database/(delete db)", function() {
+describe("When we want to check x-header, when we want to view all rows of tables table from a non existing database", function() {
+    // test case to logout via rest call
+    it("Should be able to perform a successful ajax request on resource "+window.base_url+"no_db/users to check the x-header", function() {
         var asyncCallComplete, result,
         _this = this;
         // asyncCallComplete is set to true when the ajax call is complete
@@ -11,16 +11,15 @@ describe("When we want to delete a database", function() {
 
         // SECTION 1 - call asynchronous function
         runs(function() {
-            return $.ajax({
-                url: window.base_url+"new_db",
-                type: "DELETE",
-                success: function(data) {
+            $.ajax({
+                url: window.base_url+"no_db/users",
+                type: "GET",
+                success: function(res, status, xhr) {
                     asyncCallComplete = true;
-                    result = data;
-                   // console.log(data)
-                    
+                    result = xhr;
+                // console.log(data)
                 }
-            });
+            }); 
 
         });
 
@@ -31,7 +30,7 @@ describe("When we want to delete a database", function() {
 
         // SECTION 3 - perform tests
         return runs(function() {
-            return expect(result['message']).toEqual("No such database exists");
+            return expect(result.getResponseHeader('X-Sql-Error')).toEqual('1049 Unknown database');
         });
     });
 });

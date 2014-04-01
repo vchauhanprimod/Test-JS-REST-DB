@@ -12,7 +12,7 @@ describe("Get a particular number of rows from a particular table of desired dat
         // SECTION 1 - call asynchronous function
         runs(function() {
             $.ajax({
-                url: window.base_url+"/users?limit=5&by=salary&order=asc",
+                url: window.base_url+"test_db/users?limit=5&by=salary&order=asc",
                 type: "GET",
                 success: function(data) {
                     asyncCallComplete = true;
@@ -30,7 +30,7 @@ describe("Get a particular number of rows from a particular table of desired dat
 
         // SECTION 3 - perform tests
         return runs(function() {
-            var limit = expect(result['data']).toBeLessThan(6);
+            var limit = expect(result['data'].length).toBeLessThan(6);
             if(limit){
                 return expect (result['data'].isSorted()).toEqual(1);
             }

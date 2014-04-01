@@ -1,6 +1,6 @@
-describe("When we want to delete a database", function() {
-    // test case for creation of lead
-    it("Should be able to perform a successful ajax request on resource :database/(delete db)", function() {
+describe("Get a particular row from a table from the non existing database where column name matches a given value", function() {
+    // test case to logout via rest call
+    it("Should be able to perform a successful ajax request on resource "+window.base_url+"no_db/no_table/first_name/Harry/ to view one row of user table where no_column is Harry", function() {
         var asyncCallComplete, result,
         _this = this;
         // asyncCallComplete is set to true when the ajax call is complete
@@ -11,16 +11,15 @@ describe("When we want to delete a database", function() {
 
         // SECTION 1 - call asynchronous function
         runs(function() {
-            return $.ajax({
-                url: window.base_url+"new_db",
-                type: "DELETE",
+            $.ajax({
+                url: window.base_url+"no_db/users/first_name/Harry/",
+                type: "GET",
                 success: function(data) {
                     asyncCallComplete = true;
                     result = data;
-                   // console.log(data)
-                    
+                // console.log(data)
                 }
-            });
+            }); 
 
         });
 
@@ -31,7 +30,7 @@ describe("When we want to delete a database", function() {
 
         // SECTION 3 - perform tests
         return runs(function() {
-            return expect(result['message']).toEqual("No such database exists");
+            return expect(result['message']).toEqual('Bad request');
         });
     });
 });

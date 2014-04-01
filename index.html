@@ -10,30 +10,33 @@
         <script type="text/javascript" src="lib/jquery-1.9.1.js"></script>
         <script type="text/javascript" src="lib/jasmine-1.2.0/jasmine-html.js"></script>
 
-        <script> window.base_url= "http://api.example.com/"</script>
+        <script> window.base_url= "http://172.16.1.137:3000/"</script>
 
         <!-- include source files here... -->
         <script type="text/javascript" src="src/simple.js"></script>
 
 
         <!-- include spec files here... -->
+
+
         <script type="text/javascript" src="spec/createdb.js"></script>
         <script type="text/javascript" src="spec/create_table.js"></script>
-        <script type="text/javascript" src="spec/deletedb"></script>
-        <script type="text/javascript" src="spec/delete_nonexistingdb.js"></script>
-        <script type="text/javascript" src="spec/delete_row_nonexistent_table.js"></script>
-        <script type="text/javascript" src="spec/delete_nonexisting_row.js"></script>
-        <script type="text/javascript" src="spec/delete_specific_row.js"></script>
+        <script type="text/javascript" src="spec/create_row.js"></script>
+        <script type="text/javascript" src="spec/create_row2.js"></script>
+        <script type="text/javascript" src="spec/create_row3.js"></script>
+        <script type="text/javascript" src="spec/create_row4.js"></script>
+        <script type="text/javascript" src="spec/create_row5.js"></script>
+        <script type="text/javascript" src="spec/create_row6.js"></script>
+        <script type="text/javascript" src="spec/view_all_rows.js"></script>
+        <script type="text/javascript" src="spec/view_specific_row.js"></script>
         <script type="text/javascript" src="spec/read_limited.js"></script>
         <script type="text/javascript" src="spec/orderby_read_asc.js"></script>
         <script type="text/javascript" src="spec/orderby_read_desc.js"></script>
-        <script type="text/javascript" src="spec/orderby_read_wrong_column_desc.js"></script>
-        <script type="text/javascript" src="spec/orderby_read_wrongcolumn_asc.js"></script>
-        <script type="text/javascript" src="spec/read_wrongid.js"></script>
-        <script type="text/javascript" src="spec/update_specific_row.js"></script>
-        <script type="text/javascript" src="spec/update_nonexistingdb.js"></script>
-        <script type="text/javascript" src="spec/view_all_rows.js"></script>
-        <script type="text/javascript" src="spec/view_specific_row.js"></script>
+        <script type="text/javascript" src="spec/create_table_nonexistingdb.js"></script>
+        <script type="text/javascript" src="spec/create_table_noprimarykey.js"></script>
+        <script type="text/javascript" src="spec/create_row_nonexisting_columns.js"></script> 
+        <script type="text/javascript" src="spec/deletedb"></script>
+
         <script type="text/javascript">
             (function() {
                 var jasmineEnv = jasmine.getEnv();

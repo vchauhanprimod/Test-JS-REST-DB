@@ -15,9 +15,9 @@ describe("When we want to create a new table in given database", function() {
                 url: window.base_url+"test_db/table",
                 type: "POST",
                 data:{
-                    'table_name':'users', 
-                    'primary_key':'id', 
-                    'columns':['id','salary','first_name']
+                    "table_name":"users", 
+                    "primary_key":"id", 
+                    "columns":JSON.stringify({"id":"int(10)","salary":"varchar(20)","first_name":"varchar(20)"})
                     },
                 success: function(data) {
                     asyncCallComplete = true;

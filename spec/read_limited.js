@@ -12,7 +12,7 @@ describe("Get a particular number of rows from a particular table from the desir
         // SECTION 1 - call asynchronous function
         runs(function() {
             $.ajax({
-                url: window.base_url+"test_db/users/?limit=5",
+                url: window.base_url+"test_db/users?limit=5",
                 type: "GET",
                 success: function(data) {
                     asyncCallComplete = true;

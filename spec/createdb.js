@@ -12,10 +12,10 @@ describe("When we want to create a new database", function() {
         // SECTION 1 - call asynchronous function
         runs(function() {
             return $.ajax({
-                url: window.base_url+"/database",
+                url: window.base_url+"database",
                 type: "POST",
                 data: {
-                    'db_name':'test_db'
+                    "db_name":"test_db"
                 },
                 success: function(data) {
                     asyncCallComplete = true;

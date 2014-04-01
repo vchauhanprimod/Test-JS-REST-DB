@@ -30,6 +30,7 @@ describe("When we want to view all the rows from the table", function() {
 
         // SECTION 3 - perform tests
         return runs(function() {
+            console.log(result);
             return expect(result['data']).toBeDefined();
         });
     });
