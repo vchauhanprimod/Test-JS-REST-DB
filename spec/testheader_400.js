@@ -31,7 +31,7 @@ describe("When we want to check status of the header if the requested table does
         // SECTION 3 - perform tests
         return runs(function() {
             console.log(result);
-            return expect(result.getResponseHeader('status')).toEqual('400 Bad request');
+            return expect(result.getResponseHeader('status')).toEqual('400 Bad Request');
         });
     });
 });

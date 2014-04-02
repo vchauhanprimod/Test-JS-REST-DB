@@ -32,7 +32,7 @@ describe("When we want to delete a new table in given database", function() {
         // SECTION 3 - perform tests
         return runs(function() {
             console.log(result);
-            return expect(result['message']).toEqual("Table deleted successfully");
+            return expect(result['data']['affectedRows']).toEqual(0);
         });
     });
 });
