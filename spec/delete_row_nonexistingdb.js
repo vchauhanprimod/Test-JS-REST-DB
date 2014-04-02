@@ -30,7 +30,8 @@ describe("When we want to delete a record from the table of a database that does
 
         // SECTION 3 - perform tests
         return runs(function() {
-            return expect(result['message']).toEqual("Bad request");
+            console.log(result);
+            return expect(result['X-Sql-Error-Code']).toEqual("1049");
         });
     });
 });

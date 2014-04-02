@@ -30,7 +30,8 @@ describe("Get a row from a particular table using negative id from the desired d
 
         // SECTION 3 - perform tests
         return runs(function() {
-            return expect(result['message']).toEqual('Bad Request');
+            console.log(result);
+            return expect(result['data'].length).toEqual(0);
         });
     });
 });

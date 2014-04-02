@@ -1,6 +1,6 @@
-describe("Get a particular number of rows from a particular table from the desired database. Limit specified is a string", function() {
-    // test case to logout via rest call
-    it("Should be able to perform a successful ajax request on resource "+window.base_url+"/users?limit=abcd&by=amount&order=asc to Get abcd rows from the users table ordered by the salary field in ascending", function() {
+describe("When we want to delete a new table in given database", function() {
+    // test case for creation of lead
+    it("Should be able to perform a successful ajax request on resource :database/:table", function() {
         var asyncCallComplete, result,
         _this = this;
         // asyncCallComplete is set to true when the ajax call is complete
@@ -11,15 +11,16 @@ describe("Get a particular number of rows from a particular table from the desir
 
         // SECTION 1 - call asynchronous function
         runs(function() {
-            $.ajax({
-                url: window.base_url+"users?limit=abcd&by=salary&order=asc",
-                type: "GET",
+            return $.ajax({
+                url: window.base_url+"test_db/users",
+                type: "DELETE",
                 success: function(data) {
                     asyncCallComplete = true;
                     result = data;
                 // console.log(data)
+                    
                 }
-            }); 
+            });
 
         });
 
@@ -31,7 +32,7 @@ describe("Get a particular number of rows from a particular table from the desir
         // SECTION 3 - perform tests
         return runs(function() {
             console.log(result);
-            return expect (result['message']).toEqual("Bad Request");
+            return expect(result['message']).toEqual("Table deleted successfully");
         });
     });
 });

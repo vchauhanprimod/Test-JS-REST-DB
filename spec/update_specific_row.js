@@ -1,6 +1,6 @@
 describe("When we want to update a row in given table", function() {
     // test case for update lead
-    it("Should be able to perform a successful ajax request on resource "+window.base_url+"users/12/ to update a row", function() {
+    it("Should be able to perform a successful ajax request on resource "+window.base_url+"users/2/ to update a row", function() {
         var asyncCallComplete, result,
         _this = this;
         // asyncCallComplete is set to true when the ajax call is complete
@@ -12,7 +12,7 @@ describe("When we want to update a row in given table", function() {
         // SECTION 1 - call asynchronous function
         runs(function() {
             return $.ajax({
-                url: window.base_url+"test_db/users/12",
+                url: window.base_url+"test_db/users/2",
                 type: "PUT",
                 data: {
                     'first_name':'testrow'
@@ -34,7 +34,8 @@ describe("When we want to update a row in given table", function() {
 
         // SECTION 3 - perform tests
         return runs(function() {
-            return expect(result['message']).toEqual("Updated successfully");
+            console.log(result);
+            return expect(result['data']['affectedRows']).toEqual(1);
         });
     });
 });

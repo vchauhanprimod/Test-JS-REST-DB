@@ -31,7 +31,8 @@ describe("When we want to delete a database", function() {
 
         // SECTION 3 - perform tests
         return runs(function() {
-            return expect(result['message']).toEqual("No such database exists");
+            console.log(result);
+            return expect(result['X-Sql-Error-Code']).toEqual("1008");
         });
     });
 });

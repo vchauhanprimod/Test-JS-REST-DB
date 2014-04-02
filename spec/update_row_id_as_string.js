@@ -34,7 +34,8 @@ describe("When we want to update a row using id attribue whose value is specifie
 
         // SECTION 3 - perform tests
         return runs(function() {
-            return expect(result['message']).toEqual("Bad request");
+            console.log(result);
+            return expect(result['X-Sql-Error-Code']).toEqual("1054");
         });
     });
 });

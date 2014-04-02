@@ -36,7 +36,8 @@ describe("When we want to create a new table in given database but we don't send
 
         // SECTION 3 - perform tests
         return runs(function() {
-            return expect(result['message']).toEqual("Primary key not in column name");
+            console.log(result);
+            return expect(result['X-Sql-Error-Code']).toEqual("1072");
         });
     });
 });

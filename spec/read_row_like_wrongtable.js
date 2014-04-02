@@ -30,7 +30,8 @@ describe("Get a particular row from a non existing table from the desired databa
 
         // SECTION 3 - perform tests
         return runs(function() {
-            return expect(result['message']).toEqual('Bad request');
+            console.log(result);
+            return expect(result['X-Sql-Error-Code']).toEqual('1146');
         });
     });
 });

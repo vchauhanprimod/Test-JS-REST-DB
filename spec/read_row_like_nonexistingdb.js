@@ -12,7 +12,7 @@ describe("Get a particular row from a table from the non existing database where
         // SECTION 1 - call asynchronous function
         runs(function() {
             $.ajax({
-                url: window.base_url+"no_db/users/first_name/Harry/",
+                url: window.base_url+"no_db/users/first_name/Varsha",
                 type: "GET",
                 success: function(data) {
                     asyncCallComplete = true;
@@ -30,7 +30,8 @@ describe("Get a particular row from a table from the non existing database where
 
         // SECTION 3 - perform tests
         return runs(function() {
-            return expect(result['message']).toEqual('Bad request');
+            console.log(result);
+            return expect(result['X-Sql-Error-Code']).toEqual('1049');
         });
     });
 });

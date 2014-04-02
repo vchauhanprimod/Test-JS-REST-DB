@@ -36,7 +36,8 @@ describe("When we want to create a new table in non existing -database", functio
 
         // SECTION 3 - perform tests
         return runs(function() {
-            return expect(result['message']).toEqual("Bad request");
+            console.log(result);
+            return expect(result['X-Sql-Error-Code']).toEqual("1049");
         });
     });
 });

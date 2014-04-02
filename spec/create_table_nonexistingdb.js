@@ -17,11 +17,16 @@ describe("When we want to create a new table in a database that does not exist",
                 data:{
                     "table_name":"users", 
                     "primary_key":"id", 
-                    "columns":{"id":"int","salary":"varchar(20)","first_name":"varchar(20)"}
-                    },
-                success: function(data) {
+                    "columns":{
+                        "id":"int",
+                        "salary":"varchar(20)",
+                        "first_name":"varchar(20)"
+                    }
+                },
+                success: function(data,status,xhr) {
                     asyncCallComplete = true;
                     result = data;
+                //   console.log(xhr.getResponseHeader('X-Sql-Error-Code'));
                 // console.log(data)
                     
                 }
@@ -37,7 +42,7 @@ describe("When we want to create a new table in a database that does not exist",
         // SECTION 3 - perform tests
         return runs(function() {
             console.log(result);
-            return expect(result['message']).toEqual("Check your database name");
+            return expect(result['X-Sql-Error-Code']).toEqual('1049');
         });
     });
 });

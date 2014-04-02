@@ -30,6 +30,7 @@ describe("Get a particular number of rows from a particular table of desired dat
 
         // SECTION 3 - perform tests
         return runs(function() {
+            console.log(result);
             var limit = expect(result['data'].length).toBeLessThan(6);
             if(limit){
                 return expect (result['data'].isSorted()).toEqual(1);

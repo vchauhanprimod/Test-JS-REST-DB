@@ -30,6 +30,7 @@ describe("Get a particular number of rows from a particular table from the desir
 
         // SECTION 3 - perform tests
         return runs(function() {
+            console.log(result);
             return expect (result['message']).toEqual("Bad Request");
         });
     });

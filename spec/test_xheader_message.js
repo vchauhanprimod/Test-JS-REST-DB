@@ -1,6 +1,6 @@
-describe("Get a particular number of rows from a particular table from the desired database. Limit specified is a string", function() {
+describe("When we want to check x-header, when we want to view all rows of non existing table", function() {
     // test case to logout via rest call
-    it("Should be able to perform a successful ajax request on resource "+window.base_url+"/users?limit=abcd&by=amount&order=asc to Get abcd rows from the users table ordered by the salary field in ascending", function() {
+    it("Should be able to perform a successful ajax request on resource "+window.base_url+"/users to check the x-header", function() {
         var asyncCallComplete, result,
         _this = this;
         // asyncCallComplete is set to true when the ajax call is complete
@@ -12,11 +12,11 @@ describe("Get a particular number of rows from a particular table from the desir
         // SECTION 1 - call asynchronous function
         runs(function() {
             $.ajax({
-                url: window.base_url+"users?limit=abcd&by=salary&order=asc",
+                url: window.base_url+"test_db/no_table",
                 type: "GET",
-                success: function(data) {
+                success: function(res, status, xhr) {
                     asyncCallComplete = true;
-                    result = data;
+                    result = xhr;
                 // console.log(data)
                 }
             }); 
@@ -31,7 +31,7 @@ describe("Get a particular number of rows from a particular table from the desir
         // SECTION 3 - perform tests
         return runs(function() {
             console.log(result);
-            return expect (result['message']).toEqual("Bad Request");
+            return expect(result.getResponseHeader('X-Sql-Error-Message')).toEqual('NO such table exists');
         });
     });
 });

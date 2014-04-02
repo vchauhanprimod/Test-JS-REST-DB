@@ -30,6 +30,7 @@ describe("When we want to check status of the header", function() {
 
         // SECTION 3 - perform tests
         return runs(function() {
+            console.log(result);
             return expect(result.getResponseHeader('status')).toEqual('200 OK');
         });
     });

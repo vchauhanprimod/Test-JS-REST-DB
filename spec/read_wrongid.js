@@ -31,7 +31,7 @@ describe("Get a non existing row from a particular table from the desired databa
         // SECTION 3 - perform tests
         return runs(function() {
             console.log(result);
-            return expect(result['message']).toEqual('Bad Request');
+            return expect(result['data'].length).toEqual(0);
         });
     });
 });

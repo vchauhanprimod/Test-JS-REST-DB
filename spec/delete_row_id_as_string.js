@@ -30,7 +30,8 @@ describe("When we want to delete a row from the table by specifying that id attr
 
         // SECTION 3 - perform tests
         return runs(function() {
-            return expect(result['message']).toEqual("Bad request");
+            console.log(result);
+            return expect(result['X-Sql-Error-Code']).toEqual("1054");
         });
     });
 });

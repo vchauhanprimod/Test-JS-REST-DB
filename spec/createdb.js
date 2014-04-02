@@ -34,7 +34,8 @@ describe("When we want to create a new database", function() {
 
         // SECTION 3 - perform tests
         return runs(function() {
-            return expect(result['message']).toEqual("Database created successfully");
+            console.log(result);
+            return expect(result['serverStatus']).toEqual(2);
         });
     });
 });

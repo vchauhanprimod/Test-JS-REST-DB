@@ -36,7 +36,8 @@ describe("When we want to create a new row in a given table", function() {
 
         // SECTION 3 - perform tests
         return runs(function() {
-            return expect(result['message']).toEqual("Row created successfully");
+            console.log(result);
+            return expect(result['affectedRows']).toEqual(1);
         });
     });
 });

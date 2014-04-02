@@ -30,7 +30,8 @@ describe("When we want to check x-header, when we want to view all rows of table
 
         // SECTION 3 - perform tests
         return runs(function() {
-            return expect(result.getResponseHeader('X-Sql-Error')).toEqual('1049 Unknown database');
+            console.log(result);
+            return expect(result.getResponseHeader('X-Sql-Error-code')).toEqual('1049');
         });
     });
 });

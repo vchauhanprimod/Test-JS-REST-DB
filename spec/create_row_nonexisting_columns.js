@@ -38,7 +38,7 @@ describe("When we want to create a new row in a given table but values for non e
         // SECTION 3 - perform tests
         return runs(function() {
             console.log(result);
-            return expect(result['message']).toEqual("Unknown column");
+            return expect(result['X-Sql-Error-Code']).toEqual("1054");
         });
     });
 });

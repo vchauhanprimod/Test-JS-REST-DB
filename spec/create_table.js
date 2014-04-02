@@ -36,7 +36,7 @@ describe("When we want to create a new table in given database", function() {
 
         // SECTION 3 - perform tests
         return runs(function() {
-            return expect(result['message']).toEqual("Table created successfully");
+            return expect(result['serverStatus']).toEqual(2);
         });
     });
 });

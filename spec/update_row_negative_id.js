@@ -34,7 +34,8 @@ describe("When we want to update a row for negative id in given table", function
 
         // SECTION 3 - perform tests
         return runs(function() {
-            return expect(result['message']).toEqual("Bad request");
+            console.log(result);
+            return expect(result['data']['affectedRows']).toEqual(0);
         });
     });
 });

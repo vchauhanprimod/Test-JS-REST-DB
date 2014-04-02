@@ -1,6 +1,6 @@
 describe("When we want to delete a specific row using id from the table", function() {
     // test case to logout via rest call
-    it("Should be able to perform a successful ajax request on resource "+window.base_url+"test_db/users/12 to delete the record", function() {
+    it("Should be able to perform a successful ajax request on resource "+window.base_url+"test_db/users/18 to delete the record", function() {
         var asyncCallComplete, result,
         _this = this;
         // asyncCallComplete is set to true when the ajax call is complete
@@ -12,7 +12,7 @@ describe("When we want to delete a specific row using id from the table", functi
         // SECTION 1 - call asynchronous function
         runs(function() {
             $.ajax({
-                url: window.base_url+"test_db/users/12",
+                url: window.base_url+"test_db/users/18",
                 type: "DELETE",
                 success: function(data) {
                     asyncCallComplete = true;
@@ -30,7 +30,8 @@ describe("When we want to delete a specific row using id from the table", functi
 
         // SECTION 3 - perform tests
         return runs(function() {
-            return expect(result['message']).toEqual("Row deleted successfully");
+            console.log(result);
+            return expect(result['data']['affectedRows']).toEqual(1);
         });
     });
 });

@@ -30,7 +30,8 @@ describe("When we want to check x-header, when we want to view all rows of non e
 
         // SECTION 3 - perform tests
         return runs(function() {
-            return expect(result.getResponseHeader('X-Sql-Error')).toEqual('1146 NO such table exists');
+            console.log(result);
+            return expect(result.getResponseHeader('X-Sql-Error-Code')).toEqual('1146');
         });
     });
 });

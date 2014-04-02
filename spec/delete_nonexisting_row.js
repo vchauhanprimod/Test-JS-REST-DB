@@ -30,7 +30,8 @@ describe("When we want to a non existing from the table", function() {
 
         // SECTION 3 - perform tests
         return runs(function() {
-            return expect(result['message']).toEqual("Bad request");
+            console.log(result);
+            return expect(result['data']['affectedRows']).toEqual(0);
         });
     });
 });

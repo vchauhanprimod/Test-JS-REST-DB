@@ -30,7 +30,8 @@ describe("Get row from a particular table from the desired database by specifyin
 
         // SECTION 3 - perform tests
         return runs(function() {
-            return expect(result['message']).toEqual('Bad Request');
+            console.log(result);
+            return expect(result['X-Sql-Error-Code']).toEqual('1054');
         });
     });
 });
